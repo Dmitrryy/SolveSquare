@@ -37,7 +37,6 @@ int main() {
 
     double *coeffs = Input ("Entering coeffs\n", 3);
 
-    assert(coeffs != 0);
     assert(&x1 != &x2);
 
     NRoots = SolveSquare (*coeffs, *(coeffs + 1), *(coeffs + 2), &x1, &x2);
@@ -45,7 +44,7 @@ int main() {
     free(coeffs);
 
     switch((int)NRoots) {
-        case 1 :
+        case oneroot :
             printf("%1s%15s\n", "N", "x");
             printf("%1lg%15lg\n", NRoots, x1);
             break;
