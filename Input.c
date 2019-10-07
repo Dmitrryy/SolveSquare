@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
+#include <assert.h>
+#include "else.h"
+
 /**
  * Кол-во попыток
  */
-const int maxtry = 10;
 /**
  * Обеспечивает безопасный ввод чисел в массив
  * При любой попытке ввести НЕ число, пользователь получит шанс повторить попытку (кол-во попыток ограниченно)
@@ -40,6 +42,9 @@ const int maxtry = 10;
  */
 double* Input (const char text[], int n) {
     double* data = (double*) calloc (n, sizeof(data[0]));
+
+    assert(data != NULL);
+
     int try = 0;
     int right = 0;
     char ask[2];

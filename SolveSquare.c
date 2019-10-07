@@ -1,8 +1,8 @@
 #include <math.h>
+#include "else.h"
 /**
  * Возможная погрешнасть вычислений
  */
-const double inaccuracy = 1.0e-15;
 
 double SolveLine(double b, double c, double *x2);
 

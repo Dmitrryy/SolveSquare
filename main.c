@@ -10,11 +10,7 @@
 #include <math.h>
 #include <stdlib.h>
 #include <assert.h>
-
-const int oneroot = 1;
-const int tworoots = 2;
-const int noroots = 0;
-const int infinityroots = -1;
+#include "else.h"
 
 int UnitTest(void);
 double* Input (const char text[], int n);
@@ -38,8 +34,11 @@ int main() {
     double *coeffs = Input ("Entering coeffs\n", 3);
 
     assert(&x1 != &x2);
+    assert(coeffs != NULL);
 
     NRoots = SolveSquare (*coeffs, *(coeffs + 1), *(coeffs + 2), &x1, &x2);
+
+    assert(&x1 != &x2);
 
     free(coeffs);
 
@@ -48,14 +47,14 @@ int main() {
             printf("%1s%15s\n", "N", "x");
             printf("%1lg%15lg\n", NRoots, x1);
             break;
-        case 2 :
+        case tworoots :
             printf("%1s%15s%15s\n", "N", "x1", "x2");
             printf("%1lg%15lg%15lg\n", NRoots, x1, x2);
             break;
-        case 0 :
+        case noroots :
             printf("NO Roots!\n");
             break;
-        case -1 :
+        case infinityroots :
             printf("Roots = Infinity\n");
             break;
         default:

@@ -1,5 +1,5 @@
 #include <math.h>
-
+#include "else.h"
 
 /**
  * Решает линейное уравнение вида bx + c = 0
@@ -10,8 +10,6 @@
  *
  */
 double SolveLine(double b, double c, double *x2) {
-
-    const double inaccuracy = 1.0e-15;
 
     if (fabs(b) < inaccuracy) {
         if (fabs(c) < inaccuracy)
